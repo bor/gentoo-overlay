@@ -1,0 +1,10 @@
+# ChangeLog for app-text/myrulib
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*myrulib-0.21 (16 Apr 2010)
+
+  16 Apr 2010; Sergiy Borodych <bor@univ.kiev.ua> +myrulib-0.21.ebuild,
+  +metadata.xml:
+  init ebuild
+
