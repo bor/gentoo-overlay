@@ -10,7 +10,7 @@ emerge layman (if you don't have it yet)
 
 1) Run:
     layman --overlays=http://github.com/bor/gentoo-overlay/raw/master/overlay.xml -L
-    layman --overlays=http://github.com/bor/gentoo-overlay/raw/master/overlay.xml -a hack-tools
+    layman --overlays=http://github.com/bor/gentoo-overlay/raw/master/overlay.xml -a bor
 
 2) Edit /etc/layman/layman.cfg and add this: (second line)
 
@@ -19,7 +19,7 @@ overlays  : http://www.gentoo.org/proj/en/overlays/layman-global.txt
 
 Then:
     layman -L
-    layman -a hack-tools
+    layman -a bor
 
 
 After this you can emerge everything from this overlay.
