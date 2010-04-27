@@ -1,0 +1,10 @@
+# ChangeLog for media-sound/gmusicbrowser
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*gmusicbrowser-1.1.5 (21 Apr 2010)
+
+  21 Apr 2010; Sergiy Borodych <bor@univ.kiev.ua>
+  +gmusicbrowser-1.1.5.ebuild, +metadata.xml:
+  add new alpha version
+
