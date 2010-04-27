@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>bor@univ.kiev.ua</email>
+		<name>Sergiy Borodych</name>
+	</maintainer>
+	<longdescription lang="en">
+		mysqlsla parses, filters, analyzes and sorts MySQL slow, general, binary
+		and microslow patched  logs in order to create a customizable report of
+		the queries and their meta-property values.
+	</longdescription>
+</pkgmetadata>
+
