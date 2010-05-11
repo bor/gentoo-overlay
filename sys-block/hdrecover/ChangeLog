@@ -1,0 +1,10 @@
+# ChangeLog for sys-block/hdrecover
+# Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*hdrecover-0.3 (11 May 2010)
+
+  11 May 2010; Sergiy Borodych <bor@univ.kiev.ua> +hdrecover-0.3.ebuild,
+  +metadata.xml:
+  move from old overlay
+
