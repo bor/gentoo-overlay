@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>bor@univ.kiev.ua</email>
+		<name>Sergiy Borodych</name>
+	</maintainer>
+	<longdescription lang="en">
+		Bash script for slipt audio CD image files with cue sheet
+	</longdescription>
+	<use>
+		<flag name="flake">Enable flake support (FLAC alternative)</flag>
+		<flag name="id3">Enable support for ID3 (ID3v2) tagging of audio files</flag>
+		<flag name="mac">Enable support for Monkey's Audio files</flag>
+		<flag name="tta">Enable TTA (True-Audio Loseless) support</flag>
+	</use>
+</pkgmetadata>
+
