@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<herd></herd>
+	<maintainer>
+		<email>bor@univ.kiev.ua</email>
+		<name>Sergiy Borodych</name>
+	</maintainer>
+	<longdescription lang="en">
+		Dropbox is software that syncs your files online and across your
+		computers.
+		Put your files into your Dropbox on one computer, and they'll be
+		instantly available on any of your other computers that also have
+		Dropbox installed (Windows, Mac, and Linux too!). Because copies of your
+		files are stored on Dropbox's secure servers, you can also access them
+		from any computer or mobile device using the Dropbox website.
+	</longdescription>
+</pkgmetadata>
+
