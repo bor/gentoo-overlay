@@ -4,7 +4,7 @@
 
 EAPI="2"
 
-inherit eutils
+inherit wxwidgets eutils
 
 DESCRIPTION="Create your own collection of e-books"
 HOMEPAGE="http://www.lintest.ru/wiki/MyRuLib"
@@ -22,5 +22,5 @@ RDEPEND="dev-db/sqlite:3
 DEPEND="$RDEPEND"
 
 src_install() {
-	einstall DESTDIR="${D}" || die
+	einstall || die
 }
