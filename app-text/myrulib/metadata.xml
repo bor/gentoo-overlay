@@ -7,8 +7,12 @@
 		<name>Sergiy Borodych</name>
 	</maintainer>
 	<longdescription lang="en">
-		MyRuLib - a program for organizing your home library (collection) e-book
-		format fb2.
+		Free (free and open) a program for organizing your home library
+		(collection) e-book format fb2.
+	</longdescription>
+	<longdescription lang="ru">
+		Свободная (бесплатная и открытая) программа для организации домашней
+		библиотеки (коллекции) электронных книг формата fb2.
 	</longdescription>
 </pkgmetadata>
 
