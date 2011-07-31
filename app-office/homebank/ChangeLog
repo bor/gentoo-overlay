@@ -1,0 +1,10 @@
+# ChangeLog for app-office/homebank
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*homebank-4.4 (31 Jul 2011)
+
+  31 Jul 2011; Sergiy Borodych <bor@univ.kiev.ua> +homebank-4.4.ebuild,
+  +files/homebank-4.4-implicit-pointer.patch, +metadata.xml:
+  version bump, copied from portage and bumped
+
