@@ -15,7 +15,6 @@ IUSE="dbus gstreamer mplayer mozilla webkit"
 
 RDEPEND=">=dev-lang/perl-5.8
 	dev-perl/gtk2-perl
-	dev-perl/gtk2-trayicon
 	dbus? ( dev-perl/Net-DBus )
 	gstreamer? (
 		dev-perl/GStreamer
