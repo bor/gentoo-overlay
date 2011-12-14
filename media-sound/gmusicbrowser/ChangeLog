@@ -2,6 +2,17 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*gmusicbrowser-1.1.8-r1 (14 Dec 2011)
+
+  14 Dec 2011; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  +gmusicbrowser-1.1.8-r1.ebuild:
+  migrate to EAPI=4, use '!minimal' for extra plugins deps
+
+*gmusicbrowser-1.1.8 (09 Oct 2011)
+
+  09 Oct 2011; Sergiy Borodych <bor@univ.kiev.ua> +gmusicbrowser-1.1.8.ebuild:
+  version bump
+
 *gmusicbrowser-1.1.7 (20 Mar 2011)
 
   20 Mar 2011; Sergiy Borodych <bor@univ.kiev.ua> +gmusicbrowser-1.1.7.ebuild:
