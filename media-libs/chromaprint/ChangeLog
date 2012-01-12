@@ -1,0 +1,10 @@
+# ChangeLog for media-libs/chromaprint
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*chromaprint-0.6 (12 Jan 2012)
+
+  12 Jan 2012; Sergiy Borodych <Sergiy.Borodych@gmail.com> +chromaprint-0.6.ebuild,
+  +metadata.xml:
+  init ebuild
+
