@@ -2,6 +2,13 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*gmusicbrowser-1.1.9.1_pre20120526 (04 Jun 2012)
+
+  04 Jun 2012; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  -gmusicbrowser-1.1.8.ebuild, -gmusicbrowser-1.1.8-r1.ebuild,
+  +gmusicbrowser-1.1.9.1_pre20120526.ebuild:
+  version bump, remove old versions
+
 *gmusicbrowser-1.1.9 (12 Mar 2012)
 
   12 Mar 2012; Sergiy Borodych <Sergiy.Borodych@gmail.com>
