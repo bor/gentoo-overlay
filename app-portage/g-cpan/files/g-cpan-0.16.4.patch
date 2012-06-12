@@ -1,21 +1,29 @@
 diff --git a/bin/g-cpan b/bin/g-cpan
 old mode 100644
 new mode 100755
-index a30d271..25572ae
+index a30d271..7ac9af8
 --- a/bin/g-cpan
 +++ b/bin/g-cpan
-@@ -532,8 +532,8 @@ sub generatePackageInfo
+@@ -522,6 +522,7 @@ sub generatePackageInfo
+             my $s_perl   = new DirHandle($pkgdbdir);
+             my $eb       = $ebuild_wanted;
+             $eb =~ s{::}{/}gxs;
++            $eb = '/' . $eb;
+             while (defined(my $read = $s_perl->read))
+             {
+                 if ((-d $pkgdbdir . "/" . $read) and ($read =~ m{^perl}x))
+@@ -532,8 +533,8 @@ sub generatePackageInfo
                      foreach (@data)
                      {
                          my $thisfile = (split(/ /, $_))[1];
 -						$thisfile =~ s{\.([A-Za-z]{1,3})$}{};
 -                        if (($thisfile =~ m{$eb}x) && !defined($passed_to_install{$eb}))
 +                        $thisfile =~ s{\.([A-Za-z]{1,3})$}{};
-+                        if ( ($thisfile =~ m{\Q$eb\E}x) && !defined($passed_to_install{$eb}) )
++                        if ( ($thisfile =~ m{\Q$eb\E$}x) && !defined($passed_to_install{$eb}) )
  						{
      						spinner_stop();
  							print_info("$ebuild_wanted is part of the core perl install");
-@@ -717,16 +717,18 @@ sub generatePackageInfo
+@@ -717,16 +718,18 @@ sub generatePackageInfo
                              }
                          }
  
@@ -90,3 +98,16 @@ index 379e864..481b06a 100644
  }
  sub transformCPAN {
      my $self = shift;
+diff --git a/lib/Gentoo/Portage.pm b/lib/Gentoo/Portage.pm
+index 51bb28d..3e0edb6 100644
+--- a/lib/Gentoo/Portage.pm
++++ b/lib/Gentoo/Portage.pm
+@@ -47,7 +47,7 @@ sub getEnv {
+         return($var =~ /^$envvar$/ );
+     };
+ 
+-foreach my $file ( "$ENV{HOME}/.gcpanrc", "/etc/make.conf", "/etc/make.globals" ) {
++foreach my $file ( "$ENV{HOME}/.gcpanrc", '/etc/portage/make.conf', '/etc/make.conf', '/etc/make.globals' ) {
+     if ( -f $file) {
+     	my $importer = Shell::EnvImporter->new(
+     		file => $file,
