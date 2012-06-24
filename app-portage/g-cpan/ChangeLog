@@ -2,6 +2,13 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: /var/cvsroot/gentoo-x86/app-portage/g-cpan/ChangeLog,v 1.64 2011/01/24 23:36:12 robbat2 Exp $
 
+*g-cpan-0.16.4-r4 (24 Jun 2012)
+
+  24 Jun 2012; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  -g-cpan-0.16.4-r3.ebuild, +g-cpan-0.16.4-r4.ebuild,
+  files/g-cpan-0.16.4.patch:
+  revision bump with updated patch (Perl 5.16 compatibility)
+
 *g-cpan-0.16.4-r3 (12 Jun 2012)
 
   12 Jun 2012; <bor@gentoo.org> -g-cpan-0.16.4-r2.ebuild,

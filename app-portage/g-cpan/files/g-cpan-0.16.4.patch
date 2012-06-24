@@ -1,7 +1,7 @@
 diff --git a/bin/g-cpan b/bin/g-cpan
 old mode 100644
 new mode 100755
-index a30d271..7ac9af8
+index a30d271..611cb48
 --- a/bin/g-cpan
 +++ b/bin/g-cpan
 @@ -522,6 +522,7 @@ sub generatePackageInfo
@@ -23,7 +23,15 @@ index a30d271..7ac9af8
  						{
      						spinner_stop();
  							print_info("$ebuild_wanted is part of the core perl install");
-@@ -717,16 +718,18 @@ sub generatePackageInfo
+@@ -710,23 +711,24 @@ sub generatePackageInfo
+ 
+                         # Detect the file extension, upstream usually uses .tar.gz, but not always
+                         my $module_a_ext = '';
+-                        foreach my $ext qw(tgz tbz2 tar.bz2 tar.xz tar.Z zip)
+-                        {
++                        foreach my $ext (qw( tgz tbz2 tar.bz2 tar.xz tar.Z zip )) {
+                             if ( $gcpan_run->{'cpan'}{lc($original_ebuild)}{'src_uri'} =~ m/\.\Q$ext\E$/ ) {
+                                 $module_a_ext = sprintf 'MODULE_A_EXT="%s"', $ext;
                              }
                          }
  
@@ -44,10 +52,10 @@ index a30d271..7ac9af8
  $module_section
  inherit perl-module
 diff --git a/lib/Gentoo/CPAN.pm b/lib/Gentoo/CPAN.pm
-index 379e864..481b06a 100644
+index 379e864..aeca328 100644
 --- a/lib/Gentoo/CPAN.pm
 +++ b/lib/Gentoo/CPAN.pm
-@@ -6,7 +6,7 @@ use warnings;
+@@ -6,12 +6,11 @@ use warnings;
  use File::Spec;
  use CPAN;
  use File::Path;
@@ -56,7 +64,30 @@ index 379e864..481b06a 100644
  use YAML::Node;
  use Memoize;
  use Cwd qw(getcwd abs_path cwd);
-@@ -313,15 +313,8 @@ sub FindDeps {
+ use File::Basename;
+-use Shell qw(perl);
+ 
+ memoize('transformCPAN');
+ memoize('FindDeps');
+@@ -196,13 +195,13 @@ sub unpackModule {
+     chdir($tmp_dir) or die "Unable to enter dir $tmp_dir:$!\n";
+ 
+     # If we have a Makefile.PL, run it to generate Makefile
+-    if ( -f "Makefile.PL" ) {
+-        perl("Makefile.PL",'</dev/null');
++    if ( -f 'Makefile.PL' ) {
++        system('perl Makefile.PL </dev/null');
+     }
+ 
+     # If we have a Build.PL, run it to generate the Build script
+-    if ( -f "Build.PL" ) {
+-        perl("Build.PL",'</dev/null');
++    if ( -f 'Build.PL' ) {
++        system('perl Build.PL </dev/null');
+     }
+ 
+     # Return whence we came
+@@ -313,16 +312,9 @@ sub FindDeps {
          if ( -f $object ) {
              my $abs_path = abs_path($object);
              if ( $object eq "META\.yml" ) {
@@ -69,11 +100,22 @@ index 379e864..481b06a 100644
 -                close(YAML);
 -                if ( check_yaml(@yaml) ) {
 -                my $arr = YAML::Load(@yaml);
+-                foreach my $type qw(configure_requires requires build_requires recommends) {
 +                if ( my $arr = yaml_load($abs_path) ) {
-                 foreach my $type qw(configure_requires requires build_requires recommends) {
++                foreach my $type (qw( configure_requires requires build_requires recommends )) {
                      if ( my $ar_type = $arr->{$type} ) {
                          foreach my $module ( keys %{$ar_type} ) {
-@@ -397,7 +390,7 @@ sub FindDeps {
+                             next if ( $module eq "" );
+@@ -384,7 +376,7 @@ sub FindDeps {
+                 my (%p) = ();
+                 my $fh;
+ 
+-                foreach my $type qw(requires configure_requires build_requires) {
++                foreach my $type (qw( requires configure_requires build_requires )) {
+                     if ( $fh = FileHandle->new("<$makefile\0") ) {
+                         local ($/) = "";
+                         while (<$fh>) {
+@@ -397,7 +389,7 @@ sub FindDeps {
                              my @list = split( ',', $p );
                              foreach my $pa (@list) {
                                  $pa =~ s/\n|\s+|\'//mg;
@@ -82,7 +124,7 @@ index 379e864..481b06a 100644
                                      my ($module, $version ) = eval $pa;
                                      next if ((!defined($module)) or
                                              ( $module eq "" ) or 
-@@ -438,10 +431,11 @@ sub FindDeps {
+@@ -438,10 +430,11 @@ sub FindDeps {
  
  }
  
