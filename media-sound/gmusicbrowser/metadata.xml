@@ -3,10 +3,11 @@
 <pkgmetadata>
 	<herd></herd>
 	<maintainer>
-		<email>bor@univ.kiev.ua</email>
+		<email>Sergiy.Borodych@gmail.com</email>
 		<name>Sergiy Borodych</name>
 	</maintainer>
 	<use>
-		<flag name="webkit">Enables gtk WebKit support</flag>
+		<flag name="libnotify">Use dev-perl/Gtk2-Notify (for Notify plugin)</flag>
+		<flag name="webkit">Use dev-perl/Gtk2-WebKit (for Web context plugin)</flag>
 	</use>
 </pkgmetadata>
