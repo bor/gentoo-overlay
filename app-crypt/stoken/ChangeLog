@@ -1,0 +1,9 @@
+# ChangeLog for app-crypt/stoken
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*stoken-0.6 (08 Aug 2014)
+
+  08 Aug 2014; Sergiy Borodych <Sergiy.Borodych@gmail.com> +stoken-0.6.ebuild:
+  version bump
+
