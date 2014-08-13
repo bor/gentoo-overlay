@@ -1,0 +1,10 @@
+# ChangeLog for net-p2p/syncthing
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*syncthing-0.9.4 (13 Aug 2014)
+
+  13 Aug 2014; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  +syncthing-0.9.4.ebuild, +metadata.xml:
+  init version
+
