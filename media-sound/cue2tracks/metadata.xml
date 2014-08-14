@@ -11,7 +11,6 @@
 	</longdescription>
 	<use>
 		<flag name="flake">Enable flake support (FLAC alternative)</flag>
-		<flag name="id3">Enable support for ID3 (ID3v2) tagging of audio files</flag>
 		<flag name="mac">Enable support for Monkey's Audio files</flag>
 		<flag name="tta">Enable TTA (True-Audio Loseless) support</flag>
 	</use>

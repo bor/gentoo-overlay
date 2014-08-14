@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 inherit eutils
 
-DESCRIPTION="Bash script for split audio CD image files with cue sheet to tracks and write tags."
+DESCRIPTION="Bash script for split audio CD image files with cue sheet to tracks and write tags"
 HOMEPAGE="http://code.google.com/p/cue2tracks/"
 SRC_URI="http://${PN}.googlecode.com/files/${P}.tar.gz"
 
