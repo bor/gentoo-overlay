@@ -1,28 +1,32 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-portage/g-cpan/g-cpan-0.16.4.ebuild,v 1.1 2011/01/24 23:36:12 robbat2 Exp $
+# $Header: $
 
-EAPI=2
+EAPI=5
 
 inherit perl-module
+if [[ ${PV} == "9999" ]] ; then
+	EGIT_REPO_URI="git://github.com/gentoo-perl/g-cpan.git"
+	inherit git-2
+	SRC_URI=""
+else
+	SRC_URI="mirror://gentoo/${P}.tar.gz
+			 http://dev.gentoo.org/~chainsaw/distfiles/${P}.tar.gz"
+	KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+fi
 
 DESCRIPTION="g-cpan: generate and install CPAN modules using portage"
 HOMEPAGE="http://www.gentoo.org/proj/en/perl/g-cpan.xml"
-SRC_URI="mirror://gentoo/${P}.tar.gz
-		 http://dev.gentoo.org/~robbat2/distfiles/${P}.tar.gz"
 
 LICENSE="|| ( Artistic GPL-2 )"
 SLOT="0"
-KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 IUSE=""
 
-RDEPEND="dev-lang/perl
+DEPEND="dev-lang/perl
 		>=dev-perl/yaml-0.60
 		dev-perl/Shell-EnvImporter
 		dev-perl/Log-Agent"
-DEPEND="${RDEPEND}"
-
-PATCHES=( "${FILESDIR}/${P}.patch" )
+RDEPEND="${DEPEND}"
 
 src_install() {
 		perl-module_src_install
@@ -36,6 +40,6 @@ src_install() {
 pkg_postinst() {
 	elog "You may wish to adjust the permissions on /var/tmp/g-cpan"
 	elog "if you have users besides root expecting to use g-cpan."
-	einfo "Please note that some CPAN packages need additional manual"
-	einfo "parameters or tweaking, due to bugs in their build systems."
+	elog "Please note that some CPAN packages need additional manual"
+	elog "parameters or tweaking, due to bugs in their build systems."
 }
