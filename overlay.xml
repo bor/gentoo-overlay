@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <layman>
-    <overlay contact = "bor@univ.kiev.ua"
+    <overlay contact = "Sergiy.Borodych@gmail.com"
             name = "bor"
             src = "git://github.com/bor/gentoo-overlay.git"
             type = "git"
