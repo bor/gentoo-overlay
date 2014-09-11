@@ -3,6 +3,10 @@
 # $Header: $
 
   11 Sep 2014; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  files/syncthing.initd:
+  add start_pre() with 'checkpath' test in init.d script
+
+  11 Sep 2014; Sergiy Borodych <Sergiy.Borodych@gmail.com>
   syncthing-0.9.14.ebuild:
   add '-tags noupgrade' for disable the ability of upgrading
 

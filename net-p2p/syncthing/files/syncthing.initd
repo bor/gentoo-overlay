@@ -4,11 +4,16 @@
 
 SYNCTHING_USER=${SYNCTHING_USER:-syncthing}
 SYNCTHING_GROUP=${SYNCTHING_GROUP:-syncthing}
-SYNCTHING_LOGFILE=${SYNCTHING_LOGFILE:-/var/log/syncthing/syncthing.log}
 SYNCTHING_HOMEDIR=${SYNCTHING_HOMEDIR:-/var/lib/syncthing}
+SYNCTHING_LOGFILE=${SYNCTHING_LOGFILE:-/var/log/syncthing/syncthing.log}
 
 depend() {
 	need localmount net
+}
+
+start_pre() {
+    checkpath -q -d -o ${SYNCTHING_USER}:${SYNCTHING_GROUP} ${SYNCTHING_HOMEDIR}
+    checkpath -q -f -o ${SYNCTHING_USER}:${SYNCTHING_GROUP} ${SYNCTHING_LOGFILE}
 }
 
 start() {
