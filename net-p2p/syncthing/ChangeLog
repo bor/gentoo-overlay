@@ -3,6 +3,10 @@
 # $Header: $
 
   11 Sep 2014; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  syncthing-0.9.14.ebuild:
+  add '-tags noupgrade' for disable the ability of upgrading
+
+  11 Sep 2014; Sergiy Borodych <Sergiy.Borodych@gmail.com>
   -syncthing-0.9.9.ebuild, -syncthing-0.9.10.ebuild, -syncthing-0.9.11.ebuild:
   remove old ebuilds
 

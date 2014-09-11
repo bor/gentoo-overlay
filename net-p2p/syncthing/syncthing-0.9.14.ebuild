@@ -52,8 +52,7 @@ src_compile() {
 	local user=$(whoami)
 	local host=$(hostname);	host=${host%%.*};
 	local ldflags="-w -X main.Version $version -X main.BuildStamp $date -X main.BuildUser $user -X main.BuildHost $host -X main.BuildEnv $bldenv"
-	godep go build -ldflags "$ldflags" ./cmd/syncthing || die
-	#godep go install -tags noupgrade -ldflags "$ldflags" ./cmd/... || die
+	godep go build -ldflags "$ldflags" -tags noupgrade ./cmd/syncthing || die
 }
 
 src_install() {
