@@ -9,6 +9,6 @@ Under root:
 ```
 # if you don't have it yet
 emerge layman
-layman -f -o https://github.com/bor/gentoo-overlay/raw/master/overlay.xml -a bor-overlay
+layman -f -o https://github.com/bor/gentoo-overlay/raw/master/overlay.xml -a bor
 ```
 After this you can emerge everything from this overlay.
