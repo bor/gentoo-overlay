@@ -8,7 +8,7 @@ DESCRIPTION="Open Source Continuous File Synchronization"
 HOMEPAGE="http://syncthing.net/"
 SRC_URI="https://github.com/syncthing/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-inherit eutils
+inherit eutils user
 
 LICENSE="MIT"
 SLOT="0"
@@ -25,6 +25,11 @@ RDEPEND="${DEPEND}"
 
 SG="${WORKDIR}/src/github.com/syncthing/syncthing"
 export GOPATH="${WORKDIR}"
+
+pkg_setup() {
+	enewgroup ${PN}
+	enewuser ${PN} -1 -1 /var/lib/${PN} ${PN}
+}
 
 src_prepare() {
 	mkdir -p "${SG}" || die
@@ -55,4 +60,8 @@ src_install() {
 	cd "${SG}"
 	dobin syncthing || die
 	dodoc README.md || die
+	newconfd "${FILESDIR}"/${PN}.confd ${PN}
+	newinitd "${FILESDIR}"/${PN}.initd ${PN}
+	keepdir /var/{lib,log}/${PN}
+	fowners ${PN}:${PN} /var/{lib,log}/${PN}
 }

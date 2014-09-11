@@ -2,6 +2,10 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  11 Sep 2014; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  syncthing-0.9.14.ebuild, +files/syncthing.confd, +files/syncthing.initd:
+  add init.d script with the addition of user:group for it
+
 *syncthing-0.9.14 (10 Sep 2014)
 
   10 Sep 2014; Sergiy Borodych <Sergiy.Borodych@gmail.com>

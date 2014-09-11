@@ -1,0 +1,16 @@
+# /etc/conf.d/syncthing
+# config file for /etc/init.d/syncthing
+
+# The commented variables in this file are the defaults that are used
+# in the init-script.  You don't need to uncomment them except to
+# customize them to different values.
+
+# User and group as which to run
+#SYNCTHING_USER="syncthing"
+#SYNCTHING_GROUP="syncthing"
+
+# Configuration directory
+#SYNCTHING_HOMEDIR="/var/lib/syncthing"
+
+# Log file location
+#SYNCTHING_LOGFILE="/var/log/syncthing/syncthing.log"
