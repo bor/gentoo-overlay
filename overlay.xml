@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<layman>
-    <overlay contact = "Sergiy.Borodych@gmail.com"
-            name = "bor"
-            src = "git://github.com/bor/gentoo-overlay.git"
-            type = "git"
-            status = "unofficial">
-        <link>http://github.com/bor/gentoo-overlay/</link>
-        <description>
-            A Gentoo overlay with some interesting ebuilds
-        </description>
-    </overlay>
-</layman>
+<?xml version="1.0" encoding="UTF-8"?>
+<repositories version="1.0">
+    <repo quality="experimental" status="unofficial">
+        <name>bor</name>
+        <description>A Gentoo overlay with some interesting ebuilds</description>
+        <homepage>https://github.com/bor/gentoo-overlay</homepage>
+        <owner>
+            <name>bor</name>
+            <email>Sergiy.Borodych@gmail.com</email>
+        </owner>
+        <source type="git">git://github.com/bor/gentoo-overlay.git</source>
+    </repo>
+</repositories>
