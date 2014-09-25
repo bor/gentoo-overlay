@@ -28,3 +28,6 @@ before_script:
     - cd travis-overlay
 script:
     - ./../spinner.sh "./../portage-${PORTAGE_VER}/bin/repoman full -d"
+notifications:
+    email:
+        - Sergiy.Borodych@gmail.com
