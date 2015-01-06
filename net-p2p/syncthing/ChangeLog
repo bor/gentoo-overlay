@@ -2,6 +2,12 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*syncthing-0.10.17-r1 (06 Jan 2015)
+
+  06 Jan 2015; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  +syncthing-0.10.17-r1.ebuild, +files/syncthing.logrotate, metadata.xml:
+  add logrotate support
+
   06 Jan 2015; Sergiy Borodych <Sergiy.Borodych@gmail.com>
   -syncthing-0.10.11.ebuild, -syncthing-0.10.13.ebuild,
   -syncthing-0.10.14.ebuild:
