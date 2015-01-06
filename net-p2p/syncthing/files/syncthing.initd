@@ -1,11 +1,12 @@
 #!/sbin/runscript
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 SYNCTHING_USER=${SYNCTHING_USER:-syncthing}
 SYNCTHING_GROUP=${SYNCTHING_GROUP:-syncthing}
 SYNCTHING_HOMEDIR=${SYNCTHING_HOMEDIR:-/var/lib/syncthing}
 SYNCTHING_LOGFILE=${SYNCTHING_LOGFILE:-/var/log/syncthing/syncthing.log}
+SYNCTHING_UMASK=${SYNCTHING_UMASK:-007}
 
 depend() {
 	need localmount net
@@ -22,7 +23,7 @@ start() {
 	--start --background \
 	--make-pidfile --pidfile /var/run/syncthing.pid \
 	--exec /usr/bin/syncthing \
-	--user ${SYNCTHING_USER} --group ${SYNCTHING_GROUP} \
+	--user ${SYNCTHING_USER} --group ${SYNCTHING_GROUP} --umask ${SYNCTHING_UMASK} \
 	--stdout ${SYNCTHING_LOGFILE} --stderr ${SYNCTHING_LOGFILE} \
     -- -home="${SYNCTHING_HOMEDIR}"
 	eend $?
