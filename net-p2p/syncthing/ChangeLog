@@ -2,6 +2,12 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*syncthing-0.11.5 (15 May 2015)
+
+  15 May 2015; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  +syncthing-0.11.5.ebuild:
+  version bump to 0.11 which is incompatible with 0.10, so be care!
+
 *syncthing-0.10.30 (03 Apr 2015)
 
   03 Apr 2015; Sergiy Borodych <Sergiy.Borodych@gmail.com>
