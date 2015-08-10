@@ -2,6 +2,14 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*syncthing-0.11.19 (10 Aug 2015)
+
+  10 Aug 2015; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  -syncthing-0.10.29.ebuild, -syncthing-0.11.13.ebuild,
+  -syncthing-0.11.15.ebuild, -syncthing-0.11.16.ebuild,
+  +syncthing-0.11.19.ebuild:
+  version bump, remove old versions
+
 *syncthing-0.11.17 (27 Jul 2015)
 
   27 Jul 2015; Sergiy Borodych <Sergiy.Borodych@gmail.com>
