@@ -2,6 +2,10 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  10 Aug 2015; Sergiy Borodych <Sergiy.Borodych@gmail.com> -stoken-0.6.ebuild,
+  stoken-0.90.ebuild:
+  avoid dirty version-scheme fix as no need anymore, remove old version
+
 *stoken-0.9 (27 Jul 2015)
 
   27 Jul 2015; Sergiy Borodych <Sergiy.Borodych@gmail.com> -stoken-0.5.ebuild,

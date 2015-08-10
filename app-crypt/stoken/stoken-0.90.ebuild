@@ -4,11 +4,9 @@
 
 EAPI="5"
 
-MY_PV=${PV%0}
-
 DESCRIPTION="Software Token for Linux/UNIX"
 HOMEPAGE="https://github.com/cernekee/stoken"
-SRC_URI="https://github.com/cernekee/${PN}/archive/v${MY_PV}.tar.gz -> ${PN}-${MY_PV}.tar.gz"
+SRC_URI="https://github.com/cernekee/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
@@ -19,8 +17,6 @@ RDEPEND="
 	|| ( dev-libs/nettle dev-libs/libtomcrypt )
 	gtk? ( >=x11-libs/gtk+-3.12:3 )"
 DEPEND="${RDEPEND}"
-
-S="${WORKDIR}"/${PN}-${MY_PV}
 
 src_prepare() {
 	if [[ ! -e configure ]] ; then
