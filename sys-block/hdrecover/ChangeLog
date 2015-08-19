@@ -1,6 +1,10 @@
 # ChangeLog for sys-block/hdrecover
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  19 Aug 2015; Sergiy Borodych <Sergiy.Borodych@gmail.com>
+  -hdrecover-0.3.ebuild, hdrecover-0.5.ebuild:
+  remove old ebuild, update $Id$
 
 *hdrecover-0.5 (26 Aug 2014)
 
