@@ -7,6 +7,8 @@
 		<name>Sergiy Borodych</name>
 	</maintainer>
 	<use>
+		<flag name="extras">Install some extra deps for plugins (ex. Titlebar)</flag>
+		<flag name="gstreamer-0">Enable audio support via legacy gstreamer:0.10</flag>
 		<flag name="libnotify">Use dev-perl/Gtk2-Notify (for Notify plugin)</flag>
 		<flag name="webkit">Use dev-perl/Gtk2-WebKit (for Web context plugin)</flag>
 	</use>
