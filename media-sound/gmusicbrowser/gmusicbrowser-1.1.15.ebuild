@@ -46,9 +46,7 @@ src_install() {
 	emake \
 		DOCS="AUTHORS NEWS README" \
 		DESTDIR="${D}" \
-		iconsdir="${D}/usr/share/icons/hicolor/32x32/apps" \
-		liconsdir="${D}/usr/share/icons/hicolor/48x48/apps" \
-		miconsdir="${D}/usr/share/pixmaps" \
+		iconsdir="${D}/usr/share/icons/hicolor" \
 		install
 
 	dohtml layout_doc.html
