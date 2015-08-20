@@ -1,10 +1,10 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 EAPI=5
 
-inherit eutils fdo-mime gnome2-utils
+inherit fdo-mime gnome2-utils
 
 DESCRIPTION="An open-source jukebox for large collections of mp3/ogg/flac files"
 HOMEPAGE="http://gmusicbrowser.org/"
@@ -12,15 +12,14 @@ SRC_URI="http://${PN}.org/download/${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ~x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="dbus gstreamer libnotify minimal mplayer webkit"
 
 GSTREAMER_DEPEND="
 	dev-perl/GStreamer
 	dev-perl/GStreamer-Interfaces
 	media-plugins/gst-plugins-meta:0.10"
-MPLAYER_DEPEND="
-	|| ( media-video/mplayer media-video/mplayer2 )"
+MPLAYER_DEPEND="media-video/mplayer"
 OTHER_DEPEND="
 	media-sound/alsa-utils
 	media-sound/flac123
@@ -38,10 +37,6 @@ RDEPEND="dev-lang/perl
 	libnotify? ( dev-perl/Gtk2-Notify )
 	webkit? ( dev-perl/Gtk2-WebKit )"
 DEPEND="sys-devel/gettext"
-
-src_prepare() {
-	epatch "${FILESDIR}"/${P}-linguas.patch
-}
 
 src_install() {
 	emake \
@@ -70,7 +65,7 @@ pkg_postinst() {
 	elog "mpg123/ogg123...: ${OTHER_DEPEND}"
 	elog
 	elog "other optional dependencies:"
-	elog "  dev-perl/Net-DBus (for dbus support and mpris1/2 plugins)"
+	elog "	dev-perl/Net-DBus (for dbus support and mpris1/2 plugins)"
 	elog "	dev-perl/Gtk2-WebKit (for Web context plugin)"
 	elog "	dev-perl/Gtk2-Notify (for Notify plugin)"
 	elog "	dev-perl/gnome2-wnck (for Titlebar plugin)"
