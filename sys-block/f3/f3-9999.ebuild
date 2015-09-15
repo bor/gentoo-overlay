@@ -26,11 +26,6 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 
 DOCS=( README.md  )
-PATCHES=( "${FILESDIR}"/${P}-Makefile.patch )
-
-src_prepare() {
-	[[ ${PATCHES} ]] && epatch "${PATCHES[@]}"
-}
 
 src_compile() {
 	append-flags "-fgnu89-inline"

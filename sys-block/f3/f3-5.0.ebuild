@@ -17,7 +17,7 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 
 src_compile() {
-	default
+	emake
 	if use "experimental"; then
 	   	emake experimental
 	fi
@@ -27,11 +27,9 @@ src_install() {
 	dodoc README
 	dobin f3write
 	dobin f3read
-	#default
 	if use "experimental"; then
 		dobin f3brew
 		dobin f3probe
 		dobin f3fix
-		#emake install-experimental
 	fi
 }
