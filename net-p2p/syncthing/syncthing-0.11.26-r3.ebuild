@@ -62,6 +62,7 @@ src_install() {
 
 	if use systemd; then
 		systemd_dounit etc/linux-systemd/system/${PN}@.service
+		systemd_douserunit etc/linux-systemd/user/${PN}.service
 	else
 		newconfd "${FILESDIR}"/${PN}.confd ${PN}
 		newinitd "${FILESDIR}"/${PN}.initd ${PN}
