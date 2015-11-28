@@ -61,7 +61,8 @@ src_install() {
 	doman man/*.[157] || die
 
 	if use systemd; then
-		systemd_newunit etc/linux-systemd/system/${PN}@.service ${PN}@.service
+		systemd_dounit etc/linux-systemd/system/${PN}@.service
+		systemd_douserunit etc/linux-systemd/user/${PN}.service
 	else
 		newconfd "${FILESDIR}"/${PN}.confd ${PN}
 		newinitd "${FILESDIR}"/${PN}.initd ${PN}
