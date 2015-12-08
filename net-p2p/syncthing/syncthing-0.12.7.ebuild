@@ -13,15 +13,13 @@ inherit eutils golang-build systemd user
 LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="+logrotate systemd"
+IUSE="systemd"
 
 DEPEND="
 	dev-lang/go
 	dev-go/godep
 "
-RDEPEND="${DEPEND}
-	logrotate? ( app-admin/logrotate )
-"
+RDEPEND="${DEPEND}"
 
 DOCS=( AUTHORS README.md )
 
@@ -70,10 +68,8 @@ src_install() {
 	keepdir /var/{lib,log}/${PN}
 	fowners ${PN}:${PN} /var/{lib,log}/${PN}
 
-	if use logrotate; then
-		insinto /etc/logrotate.d
-		newins "${TMPDIR}/${PN}.logrotate" ${PN}
-	fi
+	insinto /etc/logrotate.d
+	newins "${TMPDIR}/${PN}.logrotate" ${PN}
 }
 
 pkg_postinst() {
