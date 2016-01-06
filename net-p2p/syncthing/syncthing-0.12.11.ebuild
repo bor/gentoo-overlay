@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -59,7 +59,8 @@ src_install() {
 	doman man/*.[157] || die
 
 	if use systemd; then
-		systemd_newunit etc/linux-systemd/system/${PN}@.service ${PN}@.service
+		systemd_dounit etc/linux-systemd/system/${PN}@.service
+		systemd_douserunit etc/linux-systemd/user/${PN}.service
 	else
 		newconfd "${FILESDIR}"/${PN}.confd ${PN}
 		newinitd "${FILESDIR}"/${PN}.initd ${PN}
@@ -74,11 +75,13 @@ src_install() {
 
 pkg_postinst() {
 	if use systemd; then
-		MSG_START="systemctl start ${PN}@<user>"
-		MSG_ENABLE="systemctl enable ${PN}@<user>"
+		MSG_START="systemctl start ${PN}@${PN}"
+		MSG_ENABLE="systemctl enable ${PN}@${PN}"
+		MSG_SETUP="systemctl start ${PN}@<user>\n (to run it under your user)"
 	else
 		MSG_START="/etc/init.d/${PN} start"
 		MSG_ENABLE="rc-update add ${PN} default"
+		MSG_SETUP="edit /etc/conf.d/${PN}"
 	fi
 
 	einfo
@@ -86,6 +89,8 @@ pkg_postinst() {
 	elog "  ${MSG_START}"
 	elog "To enable it at startup:"
 	elog "  ${MSG_ENABLE}"
+	elog "There is an ability to custom setup, for example:"
+	elog "  ${MSG_SETUP}"
 	einfo
 	ewarn
 	ewarn "v0.12.x is not compatible with the v0.11.x releases!"
