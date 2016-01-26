@@ -6,7 +6,8 @@
 		<name>Sergiy Borodych</name>
 	</maintainer>
 	<longdescription lang="en">
-		Bash script for slipt audio CD image files with cue sheet
+		Tool for splitting audio CD image to tracks with cue sheet info.
+		Distributed as a bash script.
 	</longdescription>
 	<use>
 		<flag name="flake">Enable flake support (FLAC alternative)</flag>
