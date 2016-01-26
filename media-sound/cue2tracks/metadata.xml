@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<herd></herd>
 	<maintainer>
-		<email>bor@univ.kiev.ua</email>
+		<email>Sergiy.Borodych@gmail.com</email>
 		<name>Sergiy Borodych</name>
 	</maintainer>
 	<longdescription lang="en">
