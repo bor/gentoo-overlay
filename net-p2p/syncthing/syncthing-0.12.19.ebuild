@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI=5
 
 DESCRIPTION="Open Source Continuous File Synchronization"
-HOMEPAGE="http://syncthing.net/"
+HOMEPAGE="https://syncthing.net"
 SRC_URI="https://github.com/syncthing/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 inherit eutils golang-build systemd user
@@ -21,7 +21,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-DOCS=( AUTHORS README.md )
+DOCS=( README.md AUTHORS CONTRIBUTING.md )
 
 EGO_PN="github.com/${PN}/${PN}"
 
@@ -44,7 +44,7 @@ src_prepare() {
 	else
 		sed -i 's:@RESTART_CMD@:/etc/init.d/syncthing restart:' \
 			"${TMPDIR}/${logrotate_f}" || die
-fi
+	fi
 }
 
 src_compile() {

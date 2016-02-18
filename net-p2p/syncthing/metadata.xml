@@ -6,13 +6,9 @@
         <name>Sergiy Borodych</name>
     </maintainer>
     <longdescription lang="en">
-        The following are the project goals:
-          - Define a protocol for synchronization of a file repository between a number of collaborating nodes.
-            The protocol should be well defined, unambiguous, easily understood, free to use, efficient, secure and language neutral. This is the Block Exchange Protocol.
-          - Provide the reference implementation to demonstrate the usability of said protocol.
-            This is the syncthing utility. It is the hope that alternative, compatible implementations of the protocol will come to exist.
-          - The two are evolving together; the protocol is not to be considered stable until syncthing 1.0 is released, at which point it is locked down for incompatible changes.
-	</longdescription>
+        Syncthing replaces proprietary sync and cloud services with something open, trustworthy and decentralized.
+        Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.
+    </longdescription>
 	<use>
 		<flag name="logrotate">Use app-admin/logrotate for rotating logs</flag>
 	</use>
