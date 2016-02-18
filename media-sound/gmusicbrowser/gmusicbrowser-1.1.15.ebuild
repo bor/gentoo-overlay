@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -22,6 +22,7 @@ GSTREAMER0_DEPEND="
 	dev-perl/GStreamer-Interfaces
 	media-plugins/gst-plugins-meta:0.10"
 MPLAYER_DEPEND="media-video/mplayer"
+MPV_DEPEND="media-video/mpv"
 OTHER_DEPEND="
 	media-sound/alsa-utils
 	media-sound/flac123
@@ -35,7 +36,7 @@ RDEPEND="dev-lang/perl
 	dbus? ( dev-perl/Net-DBus )
 	gstreamer? ( ${GSTREAMER_DEPEND} )
 	gstreamer-0? ( ${GSTREAMER0_DEPEND} )
-	mplayer? ( ${MPLAYER_DEPEND} )
+	mplayer? ( || ( ${MPLAYER_DEPEND} ${MPV_DEPEND} ) )
 	!gstreamer? ( !mplayer? ( ${OTHER_DEPEND} ) )
 	extras? ( dev-perl/gnome2-wnck )
 	libnotify? ( dev-perl/Gtk2-Notify )
@@ -60,11 +61,12 @@ pkg_postinst() {
 	fdo-mime_desktop_database_update
 	gnome2_icon_cache_update
 
-	elog "Gmusicbrowser supports gstreamer, mplayer and mpg123/ogg123..."
+	elog "Gmusicbrowser supports gstreamer, mplayer, mpv and mpg123/ogg123..."
 	elog "for audio playback. Needed dependencies:"
 	elog "Gstreamer: ${GSTREAMER_DEPEND}"
 	elog "Gstreamer-0.10: ${GSTREAMER0_DEPEND}"
 	elog "mplayer: ${MPLAYER_DEPEND}"
+	elog "mpv: ${MPV_DEPEND}"
 	elog "mpg123/ogg123...: ${OTHER_DEPEND}"
 	elog
 	elog "other optional dependencies:"
