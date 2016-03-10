@@ -1,5 +1,4 @@
-# /etc/conf.d/syncthing
-# config file for /etc/init.d/syncthing
+# /etc/conf.d/syncthing: config file for /etc/init.d/syncthing
 
 # The commented variables in this file are the defaults that are used
 # in the init-script.  You don't need to uncomment them except to
@@ -15,6 +14,6 @@
 # Log file location
 #SYNCTHING_LOGFILE="/var/log/syncthing/syncthing.log"
 
-# The umask to create files
+# umask to create files
 # Caution: by default allow group access!
 #SYNCTHING_UMASK=007
