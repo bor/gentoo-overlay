@@ -1,12 +1,14 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="5"
+EAPI="6"
+
+inherit autotools
 
 DESCRIPTION="Software Token for Linux/UNIX"
 HOMEPAGE="https://github.com/cernekee/stoken"
-SRC_URI="https://github.com/cernekee/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/cernekee/${PN}/archive/v${PV}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
@@ -19,7 +21,10 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-	if [[ ! -e configure ]] ; then
-		./autogen.sh || die
-	fi
+	eautoreconf
+	eapply_user
+}
+
+src_configure() {
+	econf $(use_with gtk)
 }
