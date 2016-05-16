@@ -14,6 +14,15 @@
 # Log file location
 #SYNCTHING_LOGFILE="/var/log/syncthing/syncthing.log"
 
-# umask to create files
-# Caution: by default allow group access!
+# umask used to create files
+# The default allows group access
 #SYNCTHING_UMASK=007
+
+# I/O nice level of syncthing
+#SYNCTHING_IONICE="0"
+
+# Nice level of syncthing
+#SYNCTHING_NICE="0"
+
+# Extra options for syncthing
+#SYNCTHING_OPTS=""
