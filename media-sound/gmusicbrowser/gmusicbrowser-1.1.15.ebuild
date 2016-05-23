@@ -39,8 +39,7 @@ RDEPEND="dev-lang/perl
 	mplayer? ( || ( ${MPLAYER_DEPEND} ${MPV_DEPEND} ) )
 	!gstreamer? ( !mplayer? ( ${OTHER_DEPEND} ) )
 	extras? ( dev-perl/gnome2-wnck )
-	libnotify? ( dev-perl/Gtk2-Notify )
-	webkit? ( dev-perl/Gtk2-WebKit )"
+	libnotify? ( dev-perl/Gtk2-Notify )"
 DEPEND="sys-devel/gettext"
 
 src_install() {

@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -38,8 +38,7 @@ RDEPEND="dev-lang/perl
 	mplayer? ( ${MPLAYER_DEPEND} )
 	!gstreamer? ( !mplayer? ( ${OTHER_DEPEND} ) )
 	extras? ( dev-perl/gnome2-wnck )
-	libnotify? ( dev-perl/Gtk2-Notify )
-	webkit? ( dev-perl/Gtk2-WebKit )"
+	libnotify? ( dev-perl/Gtk2-Notify )"
 DEPEND="sys-devel/gettext"
 
 src_install() {
