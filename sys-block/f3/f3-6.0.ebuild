@@ -20,7 +20,7 @@ HOMEPAGE="http://oss.digirati.com.br/f3/"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE="+extras"
+IUSE="+experimental"
 
 DEPEND=""
 RDEPEND="${DEPEND}"
@@ -30,15 +30,15 @@ DOCS=( README.md  )
 src_compile() {
 	append-flags "-fgnu89-inline"
 	emake
-	if use "extras"; then
-		emake extra
+	if use "experimental"; then
+		emake experimental
 	fi
 }
 
 src_install() {
 	emake PREFIX="${D}/usr" install
-	if use "extras"; then
-		emake PREFIX="${D}/usr" install-extra
+	if use "experimental"; then
+		emake PREFIX="${D}/usr" install-experimental
 	fi
 	einstalldocs
 }

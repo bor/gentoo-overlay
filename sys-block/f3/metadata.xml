@@ -10,6 +10,7 @@
 	</longdescription>
 	<use>
 		<flag name="experimental">Install experimental extra tools: f3probe f3brew f3fix</flag>
+		<flag name="extras">Install extra tools: f3probe f3brew f3fix</flag>
 	</use>
 	<upstream>
 		<remote-id type="github">AltraMayor/f3</remote-id>
