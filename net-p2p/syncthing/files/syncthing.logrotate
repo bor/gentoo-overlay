@@ -1,9 +1,0 @@
-/var/log/syncthing/syncthing.log {
-    missingok
-    notifempty
-    sharedscripts
-    postrotate
-        [ -f /run/syncthing.pid ] && \
-          /etc/init.d/syncthing restart > /dev/null 2>&1 || true
-    endscript
-}
