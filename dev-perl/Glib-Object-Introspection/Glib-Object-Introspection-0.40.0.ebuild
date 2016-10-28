@@ -4,8 +4,8 @@
 
 EAPI=6
 
-MODULE_AUTHOR=XAOC
-MODULE_VERSION=0.040
+DIST_AUTHOR=XAOC
+DIST_VERSION=0.040
 inherit perl-module
 
 DESCRIPTION="Dynamically create Perl language bindings"
