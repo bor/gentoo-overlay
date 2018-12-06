@@ -12,6 +12,7 @@
 	<use>
 		<flag name="flake">Enable flake support (FLAC alternative)</flag>
 		<flag name="mac">Enable support for Monkey's Audio files</flag>
+		<flag name="shorten">Add support for the shorten audio compressor</flag>
 		<flag name="tta">Enable TTA (True-Audio Loseless) support</flag>
 	</use>
 </pkgmetadata>
