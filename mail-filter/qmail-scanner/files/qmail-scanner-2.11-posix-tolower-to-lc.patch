@@ -1,0 +1,149 @@
+--- qmail-scanner-queue.template.orig	2020-05-23 10:50:35.443313399 +0300
++++ qmail-scanner-queue.template	2020-05-23 10:50:48.772903827 +0300
+@@ -98,7 +98,7 @@
+ my $descriptive_hdrs=DESCRIPTIVE_HEADERS;
+ my $V_HEADER="DESCR_HEADERS_TEXT";
+ my($qsmsgid);
+-$qsmsgid=tolower("$V_HEADER-message-id");
++$qsmsgid=lc("$V_HEADER-message-id");
+ 
+ my ($generateMsgID);
+ 
+@@ -700,10 +700,10 @@
+   &debug("from=$headers{'from'},subj=$headers{'subject'}, $qsmsgid=$headers{$qsmsgid} $smtp_sender",5);
+ 
+   ##### st: variables for settings per domain
+-  $returnpath=tolower($returnpath);
++  $returnpath=lc($returnpath);
+   $domain_returnpath=&get_domain($returnpath);
+   #
+-  $one_recip=tolower($one_recip);
++  $one_recip=lc($one_recip);
+   $domain_one_recip=&get_domain($one_recip) if ($one_recip);
+   ######
+ 
+@@ -900,7 +900,7 @@
+ 	} else {
+ 	  /^([^\s]+):(.*)$/;
+ 	  $hdr=$1;
+-	  $last_hdr=tolower($hdr);
++	  $last_hdr=lc($hdr);
+ 	  $value=$2;
+ 	  $value =~ s/^\s//;
+ 	  if (!$quarantine_event && $BAD_MIME_CHECKS && $headers{'mime-version'} ne "" && $hdr =~ /^[^X].*\(/i) {
+@@ -917,16 +917,16 @@
+ 	}
+ 	#Don't let this array grow without bounds...
+ 	if ($num_of_headers < $MAX_NUM_HDRS) {
+-	  if ($hdr =~ /^to|cc/i && $headers{tolower($hdr)}) {
++	  if ($hdr =~ /^to|cc/i && $headers{lc($hdr)}) {
+ 	    #Special-case the To: and Cc: headers.
+ 	    #Broken mailers generate messages with multiple 
+ 	    #instances of these, so merge them into one...
+-	    $headers{tolower($hdr)} .= ",$value";
+-	  } elsif ($hdr =~ /^(from|x-mail|User-Agent|Organi|Received|Message-ID|Subject)/i && $headers{tolower($hdr)}) {
++	    $headers{lc($hdr)} .= ",$value";
++	  } elsif ($hdr =~ /^(from|x-mail|User-Agent|Organi|Received|Message-ID|Subject)/i && $headers{lc($hdr)}) {
+ 	    #Make sure any multiples of these headers are remembered, so that 
+ 	    #perlscanner checks can see all instances - just wrap em up
+ 	    #into one long line
+-	    $headers{tolower($hdr)} .= " $value";
++	    $headers{lc($hdr)} .= " $value";
+ 	  } elsif ($hdr =~ /^received$/i && !$first_received) {
+ 	    $first_received=1;
+ 	    $value=~/\[([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)\]\)$/;
+@@ -936,7 +936,7 @@
+ 	    }else{
+ 	      #&debug("no need to reset TCPREMOTEIP from $value",5);
+ 	    }
+-	  } elsif (!$quarantine_event && $BAD_MIME_CHECKS > 1 && (($headers{'mime-version'} ne "" && tolower($hdr) eq "mime-version") || ($headers{'content-type'} ne "" && tolower($hdr) eq "content-type") || ($headers{'content-transfer-encoding'} ne "" && tolower($hdr) eq "content-transfer-encoding") || ($headers{'content-disposition'} ne "" && tolower($hdr) eq "content-disposition"))) {
++	  } elsif (!$quarantine_event && $BAD_MIME_CHECKS > 1 && (($headers{'mime-version'} ne "" && lc($hdr) eq "mime-version") || ($headers{'content-type'} ne "" && lc($hdr) eq "content-type") || ($headers{'content-transfer-encoding'} ne "" && lc($hdr) eq "content-transfer-encoding") || ($headers{'content-disposition'} ne "" && lc($hdr) eq "content-disposition"))) {
+ 	    #Why would a legit message have important MIME headers defined >1 time? It could imply someone is trying to sneak
+ 	    #something past SMTP scanners...
+ 	    #Too much parsing needs to be done to do this correctly - stuff 'em - break the sucker ;-/
+@@ -945,7 +945,7 @@
+ 	    $_="$V_HEADER-Renamed-$_";
+ 	  } else {
+ 	    #All other headers: the last occurance wins!
+-	    $headers{tolower($hdr)}=$value;
++	    $headers{lc($hdr)}=$value;
+ 	  }
+ 	}else{
+ 	  &debug("w_c: max number of headers reached ($MAX_NUM_HDRS). Will stop parsing headers, but will continue",4);
+@@ -1052,7 +1052,7 @@
+     if (/^(\r|\r\n|\n)$/) {
+       #&debug("w_c: attachment num=$attachment_counter",4);
+       #&debug("w_c: last attachment header: $attachment_header:$attachment_value",4);
+-      $attach_hdrs{tolower($attachment_header)}=$attachment_value;
++      $attach_hdrs{lc($attachment_header)}=$attachment_value;
+       if ($still_attachment ne "") {
+ 	$still_attachment='';
+ 	$begin_content=$attach_hdrs{'content-transfer-encoding'};
+@@ -1078,7 +1078,7 @@
+ 	#Strip off stuff after semicolon
+ 	$ATTACHMENT =~ s/(\"|\;).*$//g;
+ 	$ATTACHMENT=&normalize_string("Filename:",$ATTACHMENT);
+-	$ATTACHMENT=tolower($ATTACHMENT);
++	$ATTACHMENT=lc($ATTACHMENT);
+ 	if (!grep(/^\Q$ATTACHMENT\E$/,@attachment_list)) {
+ 	  &debug("w_c: found C-T attachment filename '$ATTACHMENT'",4);
+ 	  push(@attachment_list, $ATTACHMENT);
+@@ -1095,7 +1095,7 @@
+ 	#Strip off stuff after semicolon
+ 	$ATTACHMENT =~ s/(\"|\;).*$//g;
+ 	$ATTACHMENT=&normalize_string("Filename:",$ATTACHMENT);
+-	$ATTACHMENT=tolower($ATTACHMENT);
++	$ATTACHMENT=lc($ATTACHMENT);
+ 	if (!grep(/^\Q$ATTACHMENT\E$/,@attachment_list)) {
+ 	  push(@attachment_list, $ATTACHMENT);
+ 	  &debug("w_c: found C-D attachment filename '$ATTACHMENT'",4);
+@@ -1171,7 +1171,7 @@
+ 	$attachment_value =~ s/^\s+//;
+ 	if ($last_header) {
+ 	  #&debug("w_c: $last_header:$last_value",5);
+-	  $attach_hdrs{tolower($last_header)}=$last_value;
++	  $attach_hdrs{lc($last_header)}=$last_value;
+ 	}
+ 	#&debug("w_c: beginning of $attachment_header, value=$attachment_value",4);
+       } elsif (/^\s(.+)/) {
+@@ -1462,7 +1462,7 @@
+       $var=~s/^[0-9]+://;
+       if (!grep(/^$type$/,@virtualheaders_array)) {
+ 	#only force lowercase if they are "real" headers
+-	$type=tolower($type);
++	$type=lc($type);
+       }else{	
+ 	$headers{$type}=$desc if ($headers{$type} eq "");
+       }
+@@ -1591,11 +1591,11 @@
+       }
+     }
+     if ($file =~ /(^.*)(\.[^\.]+)\.?$/) {
+-      $extension=tolower($2);
++      $extension=lc($2);
+     } else {
+       $extension="";
+     }
+-    $lfile = tolower($file);
++    $lfile = lc($file);
+     &debug("p_s: file $file is lowercased to $lfile and has extension $extension",5) if (!$ps_skipfile);
+     #Stat'ing attachment names from @attachment_list will fail on filenames that reformime rewrites
+     #that's OK, as they'll still be picked up via their new filename
+@@ -2388,7 +2388,7 @@
+ 	    &error_condition("ERROR: on line \"$line\".\nCannot block all .dat files. Will block too many normal messages.");
+ 	    next;
+ 	  }
+-	  $match = tolower($match);
++	  $match = lc($match);
+ 	} else {
+ 	  #this is for header matches
+ 	  $match =~ s/^\^|\$$//g;
+@@ -2731,7 +2731,7 @@
+ 	&debug("u_f: $zip_status, and successfully unzipped",5) if ($force_unzip);;
+ 	#It may have been deleted, but you still want to see if 
+ 	#it matches the perlscanner DB...
+-	#$zipfile=tolower($zipfile);
++	#$zipfile=lc($zipfile);
+ 	#push(@zipfile_list, $zipfile) if (!grep(/^$zipfile$/,@zipfile_list));
+ 	my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$zsize,$atime,$mtime,$ctime,$blksize,$blocks);
+ 	($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$zsize,$atime,$mtime,$ctime,$blksize,$blocks) = stat("$zipfile");
