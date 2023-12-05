@@ -1,7 +1,5 @@
-[![Build Status](https://travis-ci.org/bor/gentoo-overlay.svg)](https://travis-ci.org/bor/gentoo-overlay)
 
 Here you can find some ebuilds for Gentoo Linux.
-Be carefull for use it! You must undestand what you do.
 
 ## USAGE
 
