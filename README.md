@@ -5,8 +5,6 @@ Be carefull for use it! You must undestand what you do.
 
 ## USAGE
 
-### New way (prefer)
-
 For `>=sys-apps/portage-2.2.16` users is possible to add a custom repository.
 For example:
 ```
@@ -20,13 +18,3 @@ Ctrl-D
 ```
 
 See (https://wiki.gentoo.org/wiki/Project:Portage/Sync) for detailed instructions.
-
-### Old way
-
-Under root:
-```
-## if you don't have it yet
-$ emerge layman
-$ layman -f -o https://github.com/bor/gentoo-overlay/raw/master/overlay.xml -a bor
-```
-After this you can emerge everything from this overlay.
