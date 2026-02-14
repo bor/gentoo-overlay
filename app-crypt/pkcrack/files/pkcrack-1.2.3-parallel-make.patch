@@ -1,0 +1,14 @@
+mktmptbl.o is linked into findkey but not declared as a prerequisite,
+causing parallel make to fail when mktmptbl.o hasn't been compiled yet.
+
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -18,7 +18,7 @@
+ pkcrack$(SUFF): $(OBJS)
+ 	$(CC) -o pkcrack $(CFLAGS) $(OBJS)
+ 
+-findkey$(SUFF): findkey.o crc.o stage3.o keystuff.o
++findkey$(SUFF): findkey.o crc.o stage3.o keystuff.o mktmptbl.o
+ 	$(CC) -o findkey $(CFLAGS) findkey.o crc.o stage3.o keystuff.o mktmptbl.o 
+ 
+ zipdecrypt$(SUFF): zdmain.o zipdecrypt.o crc.o keystuff.o writehead.o readhead.o
